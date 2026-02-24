@@ -16,7 +16,7 @@ color:#333;
 scroll-behavior:smooth;
 }
 
-/* ===== FAIXA HERO ===== */
+/* HERO */
 .hero{
 background:linear-gradient(135deg,#0d6efd,#084298);
 color:white;
@@ -24,33 +24,37 @@ padding:100px 20px;
 text-align:center;
 }
 
-.hero h1{
-font-size:38px;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:18px;
-margin-bottom:25px;
-}
-
 .cta{
 display:inline-block;
+margin-top:20px;
 padding:14px 35px;
 background:#25d366;
 color:white;
 border-radius:40px;
 text-decoration:none;
 font-weight:bold;
-transition:0.4s;
+position:relative;
+overflow:hidden;
+animation:pulse 2s infinite;
+}
+
+.cta::after{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+animation:brilho 3s infinite;
 }
 
 .cta:hover{
-background:#1ebd5a;
+background:#1ebe5d;
 transform:scale(1.05);
 }
 
-/* ===== FAIXA SERVIÇOS ===== */
+/* SERVIÇOS */
 .faixa-servicos{
 padding:80px 20px;
 background:white;
@@ -85,15 +89,12 @@ color:#0d6efd;
 margin-bottom:15px;
 }
 
-/* ===== FAIXA AVALIAÇÃO ===== */
+/* AVALIAÇÃO */
 .faixa-avaliacao{
-background:#f1f3f5;
-padding:60px 20px;
+background:#445a7c;
+color:white;
+padding:70px 20px;
 text-align:center;
-}
-
-.stars{
-margin:15px 0;
 }
 
 .stars i{
@@ -114,14 +115,13 @@ to{opacity:1;}
 
 .btn-google{
 display:inline-block;
-margin-top:15px;
+margin-top:20px;
 padding:12px 30px;
 background:white;
 color:#000;
 border-radius:30px;
 text-decoration:none;
 font-weight:bold;
-box-shadow:0 4px 15px rgba(0,0,0,0.1);
 transition:0.4s;
 }
 
@@ -130,21 +130,16 @@ background:#ea4335;
 color:white;
 }
 
-/* ===== FAIXA LOCALIZAÇÃO ===== */
+/* LOCALIZAÇÃO */
 .faixa-localizacao{
 padding:60px 20px;
 background:white;
 text-align:center;
 }
 
-.endereco{
-margin-top:20px;
-font-size:16px;
-}
-
-/* ===== FAIXA RODAPÉ ===== */
+/* FOOTER */
 footer{
-background:#111;
+background:#0e2a4d;
 color:white;
 padding:40px 20px;
 text-align:center;
@@ -163,53 +158,127 @@ transition:0.3s;
 }
 
 .social a:hover{
-color:#0d6efd;
+color:#25d366;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:9999;
+}
+
+.modal-content{
+background:white;
+width:100%;
+max-width:420px;
+padding:35px 25px;
+border-radius:15px;
+position:relative;
+text-align:center;
+animation:fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:scale(0.8);}
+to{opacity:1; transform:scale(1);}
+}
+
+.close{
+position:absolute;
+top:10px;
+right:15px;
+font-size:22px;
+cursor:pointer;
+}
+
+/* BOTÃO WHATSAPP MODAL */
+.btn-whatsapp{
+display:inline-block;
+margin-top:20px;
+padding:14px 30px;
+background:#25d366;
+color:#fff;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
+position:relative;
+overflow:hidden;
+animation:pulse 2s infinite;
+}
+
+.btn-whatsapp::after{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+animation:brilho 3s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
+70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
+100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+@keyframes brilho{
+100%{left:100%;}
+}
+
+/* WHATS FIXO */
+.whats-fixo{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+width:60px;
+height:60px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+font-size:28px;
+text-decoration:none;
+animation:pulse 2s infinite;
+z-index:9999;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
 <h1>Soluções Profissionais</h1>
 <p>Qualidade e confiança para seu negócio</p>
-<a href="https://wa.me/5511999999999" class="cta">Falar no WhatsApp</a>
+<a href="https://wa.me/5511999999999" class="cta">
+<i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+</a>
 </section>
 
-<!-- SERVIÇOS -->
 <section class="faixa-servicos">
-<h2>Nossas Soluções</h2>
-
+<h2>Nossos Serviços</h2>
 <div class="cards">
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-paint-roller"></i></div>
-<h3>Pintura Residencial</h3>
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-building"></i></div>
-<h3>Pintura Comercial</h3>
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-brush"></i></div>
-<h3>Texturas Especiais</h3>
-</div>
-
-<div class="card">
-<div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-<h3>Manutenção</h3>
-</div>
-
+<div class="card" onclick="openModal('m1')"><div class="icon"><i class="fa-solid fa-paint-roller"></i></div><h3>Serviço 1</h3></div>
+<div class="card" onclick="openModal('m2')"><div class="icon"><i class="fa-solid fa-brush"></i></div><h3>Serviço 2</h3></div>
+<div class="card" onclick="openModal('m3')"><div class="icon"><i class="fa-solid fa-building"></i></div><h3>Serviço 3</h3></div>
+<div class="card" onclick="openModal('m4')"><div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3>Serviço 4</h3></div>
 </div>
 </section>
 
-<!-- AVALIAÇÃO -->
 <section class="faixa-avaliacao">
 <h2>Avaliação dos Clientes</h2>
-
 <div class="stars">
 <i class="fa-solid fa-star"></i>
 <i class="fa-solid fa-star"></i>
@@ -217,40 +286,86 @@ color:#0d6efd;
 <i class="fa-solid fa-star"></i>
 <i class="fa-solid fa-star"></i>
 </div>
-
-<a href="#" class="btn-google" target="_blank">
-<i class="fa-brands fa-google"></i> Ver Avaliações no Google
-</a>
+<p>5.0 de 5 estrelas no Google</p>
+<a href="#" class="btn-google"><i class="fa-brands fa-google"></i> Ver Avaliações</a>
 </section>
 
-<!-- LOCALIZAÇÃO -->
 <section class="faixa-localizacao">
-<h2>Localização</h2>
-
-<div class="endereco">
-Rua Exemplo, 123 - Centro <br>
-Sua Cidade - SP
-</div>
+<h2>Endereço</h2>
+<p>Rua Exemplo, 123 - Centro<br>Sua Cidade - SP</p>
 </section>
 
-<!-- RODAPÉ -->
 <footer>
-
-<div class="ssl">
-<i class="fa-solid fa-lock"></i> Site Seguro SSL
-</div>
-
+<div class="ssl"><i class="fa-solid fa-lock"></i> Site Seguro SSL</div>
 <div class="social">
 <a href="#"><i class="fa-brands fa-instagram"></i></a>
 <a href="#"><i class="fa-brands fa-facebook"></i></a>
-<a href="https://wa.me/5511999999999"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<p>© 2026 Empresa Exemplo - Todos os direitos reservados</p>
+</footer>
+
+<a href="https://wa.me/5511999999999" class="whats-fixo">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- MODAIS -->
+<div id="m1" class="modal" onclick="outsideClick(event,'m1')">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m1')">&times;</span>
+<h3>Serviço 1</h3>
+<p>Descrição detalhada do serviço.</p>
+<a href="https://wa.me/5511999999999" class="btn-whatsapp">
+<i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+</a>
+</div>
 </div>
 
-<p style="margin-top:20px;">
-© 2026 Empresa Exemplo - Todos os direitos reservados
-</p>
+<div id="m2" class="modal" onclick="outsideClick(event,'m2')">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m2')">&times;</span>
+<h3>Serviço 2</h3>
+<p>Descrição detalhada do serviço.</p>
+<a href="https://wa.me/5511999999999" class="btn-whatsapp">
+<i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+</a>
+</div>
+</div>
 
-</footer>
+<div id="m3" class="modal" onclick="outsideClick(event,'m3')">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m3')">&times;</span>
+<h3>Serviço 3</h3>
+<p>Descrição detalhada do serviço.</p>
+<a href="https://wa.me/5511999999999" class="btn-whatsapp">
+<i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+</a>
+</div>
+</div>
+
+<div id="m4" class="modal" onclick="outsideClick(event,'m4')">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m4')">&times;</span>
+<h3>Serviço 4</h3>
+<p>Descrição detalhada do serviço.</p>
+<a href="https://wa.me/5511999999999" class="btn-whatsapp">
+<i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
+</a>
+</div>
+</div>
+
+<script>
+function openModal(id){
+document.getElementById(id).style.display='flex';
+}
+function closeModal(id){
+document.getElementById(id).style.display='none';
+}
+function outsideClick(event,id){
+if(event.target.id===id){
+closeModal(id);
+}
+}
+</script>
 
 </body>
 </html>

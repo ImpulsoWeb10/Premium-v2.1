@@ -57,11 +57,22 @@ header p{
     border-radius:6px;
     font-weight:600;
     display:inline-block;
+    position:relative;
+    overflow:hidden;
     transition:0.3s;
+    animation:pulse 2.5s infinite;
 }
 
-.btn:hover{
-    transform:translateY(-3px);
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-75%;
+    width:50%;
+    height:100%;
+    background:rgba(255,255,255,0.3);
+    transform:skewX(-20deg);
+    animation:brilho 2.5s infinite;
 }
 
 /* BENEFÍCIOS */
@@ -133,7 +144,16 @@ footer{
 footer strong{
     color:white;
 }
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.04);}
+    100%{transform:scale(1);}
+}
 
+@keyframes brilho{
+    0%{left:-75%;}
+    100%{left:125%;}
+}
 </style>
 </head>
 
@@ -187,7 +207,6 @@ footer strong{
 <h2>Soluções para Negócios Locais</h2>
 
 <div class="servicos-grid">
-
 <div class="card">
 <h3>Landing Institucional</h3>
 <p>Ideal para apresentar sua empresa de forma profissional.</p>
@@ -202,11 +221,28 @@ footer strong{
 <h3>Otimização Visual</h3>
 <p>Reformulação de páginas existentes para padrão premium.</p>
 </div>
+.avaliacoes{
+    padding:70px 20px;
+    background:white;
+    text-align:center;
+}
 
+.estrelas{
+    font-size:26px;
+    color:#f4b400;
+    margin:15px 0;
+}
 </div>
 </div>
 </section>
-
+<section class="avaliacoes">
+<div class="container">
+<h2>Avaliação dos Clientes</h2>
+<p class="estrelas">★★★★★</p>
+<p>5.0 de 5 estrelas no Google</p>
+<a href="#" class="btn">Ver Avaliações</a>
+</div>
+</section>
 <!-- CTA FINAL -->
 <section class="cta">
 <div class="container">
@@ -219,7 +255,10 @@ footer strong{
 <div class="container">
 <p><strong>Nome da Agência</strong></p>
 <p>Especialistas em Landing Pages para Negócios Locais</p>
+<p>📍 Atendimento em São Paulo - SP</p>
+<p>🔒 Site Seguro</p>
 <p>© 2026 Todos os direitos reservados</p>
+    <p>🔒 Site protegido com certificado SSL</p>
 </div>
 </footer>
 

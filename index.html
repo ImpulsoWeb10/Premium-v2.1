@@ -5,224 +5,341 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Empresa Exemplo - Soluções Profissionais</title>
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f8f9fa;
-    color: #333;
-}
-
-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f4f6f9;
+color:#333;
+scroll-behavior:smooth;
 }
 
 /* HERO */
-.hero {
-    background: linear-gradient(135deg, #0d6efd, #084298);
-    color: white;
-    padding: 100px 20px;
+.hero{
+background:linear-gradient(135deg,#0d6efd,#084298);
+color:white;
+padding:100px 20px;
+text-align:center;
 }
 
-.hero h1 {
-    font-size: 40px;
+.hero h1{
+font-size:38px;
+margin-bottom:10px;
 }
 
-.cta {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 35px;
-    background: #25d366;
-    color: white;
-    font-size: 18px;
-    border-radius: 40px;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s;
+.cta{
+display:inline-block;
+margin-top:20px;
+padding:14px 35px;
+background:#25d366;
+color:white;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
+transition:0.4s;
+position:relative;
+overflow:hidden;
 }
 
-.cta:hover {
-    transform: scale(1.05);
-}
-
-/* Brilho passando */
-.cta::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
-    animation: brilho 3s infinite;
-}
-
-@keyframes brilho {
-    100% { left: 100%; }
+.cta:hover{
+transform:scale(1.05);
 }
 
 /* SERVIÇOS */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    max-width: 1100px;
-    margin: auto;
+section{
+padding:70px 20px;
+text-align:center;
 }
 
-.card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+transition:0.4s;
 }
 
-.icon {
-    font-size: 40px;
-    color: #0d6efd;
-    margin-bottom: 15px;
-    transition: 0.3s;
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
-.card:hover .icon {
-    transform: scale(1.2);
-    color: #084298;
+.icon{
+font-size:38px;
+color:#0d6efd;
+margin-bottom:15px;
 }
 
-/* GOOGLE */
-.btn-google {
-    display: inline-block;
-    background: #fff;
-    color: #000;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+z-index:999;
 }
 
-.btn-google i {
-    margin-right: 8px;
-    color: #ea4335;
+.modal-content{
+background:white;
+padding:40px;
+border-radius:15px;
+width:90%;
+max-width:400px;
+text-align:center;
+position:relative;
+animation:fadeIn 0.4s;
 }
 
-.btn-google:hover {
-    background: #f1f1f1;
-    transform: translateY(-3px);
+@keyframes fadeIn{
+from{opacity:0; transform:scale(0.8);}
+to{opacity:1; transform:scale(1);}
+}
+
+.close{
+position:absolute;
+top:10px;
+right:15px;
+font-size:22px;
+cursor:pointer;
+}
+
+.btn-modal{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+background:#25d366;
+color:white;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-modal:hover{
+background:#1ebd5a;
+}
+
+/* ESTRELAS */
+.stars{
+margin-top:10px;
+}
+
+.stars i{
+color:#ffc107;
+opacity:0;
+animation:starAnim 1s forwards;
+}
+
+.stars i:nth-child(1){animation-delay:0.2s;}
+.stars i:nth-child(2){animation-delay:0.4s;}
+.stars i:nth-child(3){animation-delay:0.6s;}
+.stars i:nth-child(4){animation-delay:0.8s;}
+.stars i:nth-child(5){animation-delay:1s;}
+
+@keyframes starAnim{
+to{opacity:1;}
+}
+
+/* GOOGLE BUTTON */
+.btn-google{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+background:white;
+color:#000;
+border-radius:30px;
+text-decoration:none;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+transition:0.4s;
+font-weight:bold;
+}
+
+.btn-google:hover{
+background:#ea4335;
+color:white;
+}
+
+/* SOCIAL */
+.social{
+margin-top:20px;
+}
+
+.social a{
+margin:0 10px;
+font-size:26px;
+color:#0d6efd;
+transition:0.3s;
+}
+
+.social a:hover{
+color:#084298;
 }
 
 /* MAPA */
-.map-container {
-    max-width: 500px;
-    margin: 30px auto;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+.map-container{
+max-width:500px;
+margin:30px auto;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
-.map-container iframe {
-    width: 100%;
-    height: 250px;
-    border: 0;
+.map-container iframe{
+width:100%;
+height:250px;
+border:0;
 }
 
-/* FOOTER */
-footer {
-    background: #111;
-    color: white;
-    padding: 30px;
-    text-align: center;
+/* SSL */
+.ssl{
+margin-top:20px;
+font-size:14px;
+color:green;
+}
+
+footer{
+background:#111;
+color:white;
+padding:25px;
+text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
-    <h1>Soluções Profissionais para Seu Negócio</h1>
-    <p>Qualidade, confiança e excelência em cada projeto.</p>
-    <a href="https://wa.me/5511999999999" class="cta">Falar no WhatsApp</a>
+<h1>Soluções Profissionais</h1>
+<p>Qualidade e confiança para seu negócio.</p>
+<a href="https://wa.me/5511999999999" class="cta">Falar no WhatsApp</a>
+<div class="ssl">
+<i class="fa-solid fa-lock"></i> Site Seguro SSL
+</div>
 </section>
 
-<!-- SERVIÇOS -->
 <section>
-    <h2>Nossas Soluções</h2>
-    <div class="cards">
-        <div class="card">
-            <div class="icon"><i class="fa-solid fa-paint-roller"></i></div>
-            <h3>Pintura Residencial</h3>
-            <p>Acabamento profissional e durabilidade.</p>
-        </div>
+<h2>Nossas Soluções</h2>
 
-        <div class="card">
-            <div class="icon"><i class="fa-solid fa-building"></i></div>
-            <h3>Pintura Comercial</h3>
-            <p>Ambientes modernos e sofisticados.</p>
-        </div>
+<div class="cards">
 
-        <div class="card">
-            <div class="icon"><i class="fa-solid fa-brush"></i></div>
-            <h3>Texturas Especiais</h3>
-            <p>Efeitos decorativos diferenciados.</p>
-        </div>
+<div class="card" onclick="openModal('modal1')">
+<div class="icon"><i class="fa-solid fa-paint-roller"></i></div>
+<h3>Pintura</h3>
+</div>
 
-        <div class="card">
-            <div class="icon"><i class="fa-solid fa-house"></i></div>
-            <h3>Reformas</h3>
-            <p>Soluções completas para seu espaço.</p>
-        </div>
+<div class="card" onclick="openModal('modal2')">
+<div class="icon"><i class="fa-solid fa-brush"></i></div>
+<h3>Texturas</h3>
+</div>
 
-        <div class="card">
-            <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-            <h3>Manutenção</h3>
-            <p>Serviço ágil e eficiente.</p>
-        </div>
-    </div>
+<div class="card" onclick="openModal('modal3')">
+<div class="icon"><i class="fa-solid fa-building"></i></div>
+<h3>Comercial</h3>
+</div>
+
+<div class="card" onclick="openModal('modal4')">
+<div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+<h3>Manutenção</h3>
+</div>
+
+</div>
 </section>
 
-<!-- AVALIAÇÕES -->
 <section>
-    <h2>Avaliações</h2>
-    <p>Veja o que nossos clientes dizem no Google.</p>
-    <a href="#" class="btn-google" target="_blank">
-        <i class="fa-brands fa-google"></i>
-        Ver Avaliações no Google
-    </a>
+<h2>Avaliações</h2>
+
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+
+<a href="#" class="btn-google" target="_blank">
+<i class="fa-brands fa-google"></i> Ver no Google
+</a>
+
+<div class="social">
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-facebook"></i></a>
+</div>
+
 </section>
 
-<!-- LOCALIZAÇÃO -->
 <section>
-    <h2>Localização</h2>
-    <div class="map-container">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.040...COLE_SEU_LINK_AQUI"
-            allowfullscreen=""
-            loading="lazy">
-        </iframe>
-    </div>
+<h2>Localização</h2>
+<div class="map-container">
+<iframe src="COLE_SEU_LINK_GOOGLE_MAPS_AQUI" loading="lazy"></iframe>
+</div>
 </section>
 
 <footer>
-    © 2026 Empresa Exemplo - Todos os direitos reservados
+© 2026 Empresa Exemplo - Todos os direitos reservados
 </footer>
+
+<!-- MODAIS -->
+<div id="modal1" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal1')">&times;</span>
+<h3>Pintura Profissional</h3>
+<p>Serviço completo com acabamento premium.</p>
+<a href="https://wa.me/5511999999999" class="btn-modal">Solicitar Orçamento</a>
+</div>
+</div>
+
+<div id="modal2" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal2')">&times;</span>
+<h3>Texturas Especiais</h3>
+<p>Efeitos modernos e sofisticados.</p>
+<a href="https://wa.me/5511999999999" class="btn-modal">Solicitar Orçamento</a>
+</div>
+</div>
+
+<div id="modal3" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal3')">&times;</span>
+<h3>Pintura Comercial</h3>
+<p>Ambientes empresariais modernos.</p>
+<a href="https://wa.me/5511999999999" class="btn-modal">Solicitar Orçamento</a>
+</div>
+</div>
+
+<div id="modal4" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('modal4')">&times;</span>
+<h3>Manutenção</h3>
+<p>Serviço rápido e eficiente.</p>
+<a href="https://wa.me/5511999999999" class="btn-modal">Solicitar Orçamento</a>
+</div>
+</div>
+
+<script>
+function openModal(id){
+document.getElementById(id).style.display='flex';
+}
+
+function closeModal(id){
+document.getElementById(id).style.display='none';
+}
+</script>
 
 </body>
 </html>
